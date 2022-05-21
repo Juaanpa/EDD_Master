@@ -50,7 +50,20 @@ public class Calculator {
 	 * divisores que tiene.
 	 */
 	public static int[] divisors(int n) {
-		throw new NotImplementedException("no implementado");
+		int size=0;
+
+        for(int x=n;x>0;x--){
+            if (n%x==0)
+                size++;
+        }
+        int divisores[]=new int[size];
+		for (int i=n,j=0;i>0;i--) {
+			if (n%i==0) {
+				divisores[j]=i;
+                j++;
+			}
+		}
+		return divisores;
 	}
 
 	/*
@@ -65,7 +78,31 @@ public class Calculator {
 	 * mostrar: cincuenta y seis
 	 */
 	public static String speakToMe(int n) {
-		throw new NotImplementedException("no implementado");
+		String unidades[]={"Cero","Uno","Dos","Tres","Cuatro","Cinco","Seis","Siete","Ocho","Nueve"};
+		String decenas[]={"Dieci","Veinti","Treinta y ","Cuarenta y ","Cincuenta y ","Sesesenta y ","Setenta y ","Ochenta y ","Noventa y "};
+		String especiales[]={"Diez","Once","Doce","Trece","Catorce","Quince","Veinte"};
+		int unidad=n%10;
+		int decena=n/10;
+		if (decena==1 && unidad<=5) {
+			switch (unidad) {
+				case 0:
+					return especiales[0];
+				case 1:
+					return especiales[1];
+				case 2:
+					return especiales[2];
+				case 3:
+					return especiales[3];
+				case 4:
+					return especiales[4];
+				case 5:
+					return especiales[5];
+			}
+		}
+		if (decena==2 && unidad==0) {
+			return especiales[6];
+		}
+		return decenas[decena-1]+unidades[unidad];
 	}
 
 	/*
