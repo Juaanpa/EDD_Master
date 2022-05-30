@@ -1,5 +1,6 @@
 package fp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.NotImplementedException;
@@ -22,7 +23,16 @@ public class Calculator {
 	 * devuelve una lista con los n números de la serie de fibonacci.
 	 */
 	public static List<Integer> fibonacci(int n) {
-		throw new NotImplementedException("no implementado");
+		List<Integer> numeros;
+		numeros=new ArrayList<Integer>();
+		numeros.add(1);	
+		numeros.add(1);	
+		int almacenado=0;
+		for (int i=2;i<n;i++) {
+			almacenado=numeros.get(numeros.size()-1)+numeros.get(numeros.size()-2);
+            numeros.add(almacenado);
+		}
+        return numeros;
 	}
 
 	/*
@@ -143,6 +153,9 @@ public class Calculator {
 	 * dd-MM-yyyy
 	 */
 	public static boolean isLeapYear(String fecha) {
+		if (fecha==null) {
+			throw new StringIndexOutOfBoundsException();
+		}
 		fecha = fecha.substring(fecha.length() -4, fecha.length());
 		int year=Integer.parseInt(fecha);
 		boolean bisiesto = false;
