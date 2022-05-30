@@ -117,7 +117,7 @@ public class Calculator {
 
 	/*
 	 * Pedir un número de 0 a 99 y mostrarlo escrito. Por ejemplo, para 56 mostrar:
-	 * cincuenta y seis
+	 * cincuenta y seis.
 	 */
 	public static String speakToMe(int n) {
 		String unidades[] = { "Cero", "Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve" };
